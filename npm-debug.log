@@ -1,0 +1,149 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/Users/cjones/node-js-getting-started',
+5 verbose install   [ 'http', 'fs', 'pg', 'express', 'cool-ascii-faces' ] ]
+6 info preinstall node-js-getting-started@0.1.2
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'http@0.0.2', null ]
+9 verbose cache add name=undefined spec="http@0.0.2" args=["http@0.0.2",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'http@0.0.2',
+10 verbose parsed url   path: 'http@0.0.2',
+10 verbose parsed url   href: 'http@0.0.2' }
+11 verbose cache add [ 'fs@0.1.x', null ]
+12 verbose cache add name=undefined spec="fs@0.1.x" args=["fs@0.1.x",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'fs@0.1.x',
+13 verbose parsed url   path: 'fs@0.1.x',
+13 verbose parsed url   href: 'fs@0.1.x' }
+14 verbose already installed skipping pg@4.x /Users/cjones/node-js-getting-started
+15 verbose already installed skipping express@~4.9.x /Users/cjones/node-js-getting-started
+16 verbose cache add name="http" spec="0.0.2" args=["http","0.0.2"]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: '0.0.2',
+17 verbose parsed url   path: '0.0.2',
+17 verbose parsed url   href: '0.0.2' }
+18 verbose addNamed [ 'http', '0.0.2' ]
+19 verbose addNamed [ '0.0.2', '0.0.2' ]
+20 verbose cache add name="fs" spec="0.1.x" args=["fs","0.1.x"]
+21 verbose parsed url { protocol: null,
+21 verbose parsed url   slashes: null,
+21 verbose parsed url   auth: null,
+21 verbose parsed url   host: null,
+21 verbose parsed url   port: null,
+21 verbose parsed url   hostname: null,
+21 verbose parsed url   hash: null,
+21 verbose parsed url   search: null,
+21 verbose parsed url   query: null,
+21 verbose parsed url   pathname: '0.1.x',
+21 verbose parsed url   path: '0.1.x',
+21 verbose parsed url   href: '0.1.x' }
+22 verbose addNamed [ 'fs', '0.1.x' ]
+23 verbose addNamed [ null, '>=0.1.0-0 <0.2.0-0' ]
+24 silly lockFile 85ff62b1-http-0-0-2 http@0.0.2
+25 verbose lock http@0.0.2 /Users/cjones/.npm/85ff62b1-http-0-0-2.lock
+26 silly lockFile e576b094-fs-0-1-x fs@0.1.x
+27 verbose lock fs@0.1.x /Users/cjones/.npm/e576b094-fs-0-1-x.lock
+28 verbose already installed skipping cool-ascii-faces@~1.3.x /Users/cjones/node-js-getting-started
+29 silly addNameRange { name: 'fs', range: '>=0.1.0-0 <0.2.0-0', hasData: false }
+30 verbose request where is /http
+31 verbose request registry https://registry.npmjs.org/
+32 verbose request id 103f85a5f6c50cab
+33 verbose url raw /http
+34 verbose url resolving [ 'https://registry.npmjs.org/', './http' ]
+35 verbose url resolved https://registry.npmjs.org/http
+36 verbose request where is https://registry.npmjs.org/http
+37 info trying registry request attempt 1 at 23:02:38
+38 verbose etag "4JQJ1CFCG1G5H6V461DG3P7GB"
+39 http GET https://registry.npmjs.org/http
+40 verbose request where is /fs
+41 verbose request registry https://registry.npmjs.org/
+42 verbose url raw /fs
+43 verbose url resolving [ 'https://registry.npmjs.org/', './fs' ]
+44 verbose url resolved https://registry.npmjs.org/fs
+45 verbose request where is https://registry.npmjs.org/fs
+46 info trying registry request attempt 1 at 23:02:38
+47 verbose etag "3UQWMMZD15TH5WUAUG7KMSL14"
+48 http GET https://registry.npmjs.org/fs
+49 http 304 https://registry.npmjs.org/http
+50 silly registry.get cb [ 304,
+50 silly registry.get   { date: 'Tue, 13 Jan 2015 23:02:38 GMT',
+50 silly registry.get     server: 'Apache',
+50 silly registry.get     via: '1.1 varnish',
+50 silly registry.get     'last-modified': 'Tue, 13 Jan 2015 23:02:38 GMT',
+50 silly registry.get     'cache-control': 'max-age=60',
+50 silly registry.get     etag: '"4JQJ1CFCG1G5H6V461DG3P7GB"',
+50 silly registry.get     age: '29',
+50 silly registry.get     'x-served-by': 'cache-fra1245-FRA',
+50 silly registry.get     'x-cache': 'HIT',
+50 silly registry.get     'x-cache-hits': '1',
+50 silly registry.get     'x-timer': 'S1421190158.197903,VS0,VE0',
+50 silly registry.get     vary: 'Accept',
+50 silly registry.get     'content-length': '0',
+50 silly registry.get     'keep-alive': 'timeout=10, max=50',
+50 silly registry.get     connection: 'Keep-Alive' } ]
+51 verbose etag https://registry.npmjs.org/http from cache
+52 http 304 https://registry.npmjs.org/fs
+53 silly registry.get cb [ 304,
+53 silly registry.get   { date: 'Tue, 13 Jan 2015 23:02:38 GMT',
+53 silly registry.get     server: 'Apache',
+53 silly registry.get     via: '1.1 varnish',
+53 silly registry.get     'last-modified': 'Tue, 13 Jan 2015 23:02:38 GMT',
+53 silly registry.get     'cache-control': 'max-age=60',
+53 silly registry.get     etag: '"3UQWMMZD15TH5WUAUG7KMSL14"',
+53 silly registry.get     age: '29',
+53 silly registry.get     'x-served-by': 'cache-fra1225-FRA',
+53 silly registry.get     'x-cache': 'HIT',
+53 silly registry.get     'x-cache-hits': '1',
+53 silly registry.get     'x-timer': 'S1421190158.198106,VS0,VE0',
+53 silly registry.get     vary: 'Accept',
+53 silly registry.get     'content-length': '0',
+53 silly registry.get     'keep-alive': 'timeout=10, max=50',
+53 silly registry.get     connection: 'Keep-Alive' } ]
+54 verbose etag https://registry.npmjs.org/fs from cache
+55 silly lockFile 85ff62b1-http-0-0-2 http@0.0.2
+56 silly lockFile 85ff62b1-http-0-0-2 http@0.0.2
+57 silly addNameRange number 2 { name: 'fs', range: '>=0.1.0-0 <0.2.0-0', hasData: true }
+58 silly addNameRange versions [ 'fs', [ '0.0.0', '0.0.2' ] ]
+59 silly lockFile e576b094-fs-0-1-x fs@0.1.x
+60 silly lockFile e576b094-fs-0-1-x fs@0.1.x
+61 error Error: version not found: http@0.0.2
+61 error     at /usr/local/lib/node_modules/npm/lib/cache/add-named.js:125:12
+61 error     at saved (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:167:7)
+61 error     at Object.oncomplete (fs.js:108:15)
+62 error If you need help, you may report this *entire* log,
+62 error including the npm and node versions, at:
+62 error     <http://github.com/npm/npm/issues>
+63 error System Darwin 14.0.0
+64 error command "node" "/usr/local/bin/npm" "install"
+65 error cwd /Users/cjones/node-js-getting-started
+66 error node -v v0.10.35
+67 error npm -v 1.4.28
+68 verbose exit [ 1, true ]
