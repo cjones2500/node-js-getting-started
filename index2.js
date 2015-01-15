@@ -1,44 +1,29 @@
-var bodyParser = require('body-parser')
-var multer = require('multer');
-
 var http = require('http'),
     express = require('express'),
-    path = require('path');
-
-//establish database interface
-MongoClient = require('mongodb').MongoClient,
-Server = require('mongodb').Server,
-CollectionDriver = require('./CollectionDriver').CollectionDriver;
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    MongoClient = require('mongodb').MongoClient,
+    Server = require('mongodb').Server,
+    CollectionDriver = require('./collectionDriver').CollectionDriver;
  
 var app = express();
-app.set('port', process.env.PORT || 5000); 
+
+app.set('port', process.env.PORT || 3000); 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+//app.use(express.bodyParser()); // <-- add
 
-
-//app.use(express.bodyParser());
-
-// parse json formatted documents
-//app.use(bodyParser.json());
-
-// parse application/x-www-form-urlencoded
-//app.use(bodyParser.urlencoded({ extended: true }));
-
-// parse multipart/form-data
-//app.use(multer());
-
-
-//implement sections of the mongoDb
-var mongoHost = 'localHost';
-var mongoPort = 27017;
+var mongoHost = 'localHost'; //A
+var mongoPort = 27017; 
 var collectionDriver;
-
-var mongoClient = new MongoClient(new Server(mongoHost, mongoPort));
+ 
+var mongoClient = new MongoClient(new Server(mongoHost, mongoPort)); //B
 mongoClient.open(function(err, mongoClient) { //C
   if (!mongoClient) {
       console.error("Error! Exiting... Must start MongoDB first");
@@ -50,11 +35,10 @@ mongoClient.open(function(err, mongoClient) { //C
 
 app.use(express.static(path.join(__dirname, 'public')));
  
-app.get('/', function (request, response) {
-  	console.log(request.headers);
-	response.send('<html><body><h1>Hello World</h1></body></html>');
+app.get('/', function (req, res) {
+  res.send('<html><body><h1>Hello World</h1></body></html>');
 });
-
+ 
 app.get('/:collection', function(req, res) { //A
    var params = req.params; //B
    collectionDriver.findAll(req.params.collection, function(error, objs) { //C
@@ -103,12 +87,10 @@ app.put('/:collection/:entity', function(req, res) { //A
           else { res.send(200, objs); } //C
        });
    } else {
-       var error = { "message" : "Cannot PUT a whole collection" };
-       res.send(400, error);
+	   var error = { "message" : "Cannot PUT a whole collection" }
+	   res.send(400, error);
    }
 });
-
-
 
 app.delete('/:collection/:entity', function(req, res) { //A
     var params = req.params;
@@ -120,18 +102,15 @@ app.delete('/:collection/:entity', function(req, res) { //A
           else { res.send(200, objs); } //C 200 b/c includes the original doc
        });
    } else {
-       var error = { "message" : "Cannot DELETE a whole collection" };
+       var error = { "message" : "Cannot DELETE a whole collection" }
        res.send(400, error);
    }
 });
-
-
-//before http.createServer but after app.get
-app.use(function (req,res) { 
-    res.render('404', {url:req.url}); 
+ 
+app.use(function (req,res) {
+    res.render('404', {url:req.url});
 });
 
- 
 http.createServer(app).listen(app.get('port'), function(){
-  	console.log('Express server listening on port ' + app.get('port'));
+  console.log('Express server listening on port ' + app.get('port'));
 });
