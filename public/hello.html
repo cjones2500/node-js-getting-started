@@ -1,1 +1,40 @@
-<html></body>Hello World</body></html>
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
+    <script type='text/javascript' src='opdb.js'></script>
+    <script type='text/javascript' src='TableBuilder.js'></script>
+    <style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+    </style>
+    <head>
+        <script type="text/javascript">
+            //build Table with innerHTML
+            var buildTableWithField = function(data){
+                var testTable = new HtmlTableBuilder(data);
+                var testTableHtml = testTable.buildTable();
+                console.log(testTableHtml)
+                document.getElementById("userDb").innerHTML = testTableHtml;
+            }
+            //fetch information to fill the database
+            $(document).ready(function() {
+                //var testDb = new OPDatabase("http://localhost:5000/","userDb");
+                var testDb = new OPDatabase("http://localhost:5000/","testdb");
+                testDb.getAllFromDb(buildTableWithField);
+            });
+        </script>    
+    </head>
+    <body>
+        <div id="userDb"></div>
+        <script type="text/javascript">
+            
+        </script>
+    </body>
+
+</html>

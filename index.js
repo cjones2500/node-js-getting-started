@@ -15,6 +15,13 @@ app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+//active adds the public extension to the basic filePath (But no cookies?)
+//any HTML file that goes into this directory will be visible online :)
+app.set('public', path.join(__dirname, 'public'));
+//this line does the same as above and also does not include cookies?
+//app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -56,32 +63,36 @@ app.get('/', function (request, response) {
 });
 
 app.get('/:collection', function(req, res) { //A
-   var params = req.params; //B
-   collectionDriver.findAll(req.params.collection, function(error, objs) { //C
-    	  if (error) { res.send(400, error); } //D
-	      else { 
-	          if (req.accepts('html')) { //E
-    	          res.render('data',{objects: objs, collection: req.params.collection}); //F
-              } else {
-	          res.set('Content-Type','application/json'); //G
-                  res.send(200, objs); //H
-              }
-         }
-   	});
+    console.log("get function activated for findAll");
+    var params = req.params; //B
+    collectionDriver.findAll(req.params.collection, function(error, objs) { //C
+	if (error) { res.send(400, error);} //D
+	else { 
+	    if (req.accepts('html')) { //E
+		res.render('data',{objects: objs, collection: req.params.collection}); //F
+	    }
+
+	    else {
+		res.set('Content-Type','application/json'); //G
+		res.send(200, objs); //H
+	    }
+	}
+    });
 });
  
 app.get('/:collection/:entity', function(req, res) { //I
-   var params = req.params;
-   var entity = params.entity;
-   var collection = params.collection;
-   if (entity) {
-       collectionDriver.get(collection, entity, function(error, objs) { //J
-          if (error) { res.send(400, error); }
-          else { res.send(200, objs); } //K
-       });
-   } else {
-      res.send(400, {error: 'bad url', url: req.url});
-   }
+    console.log("get function activated for get");
+    var params = req.params;
+    var entity = params.entity;
+    var collection = params.collection;
+    if (entity) {
+	collectionDriver.get(collection, entity, function(error, objs) { //J
+	    if (error) { res.send(400, error); }
+	    else { res.send(200, objs); } //K
+	});
+    } else {
+	res.send(400, {error: 'bad url', url: req.url});
+    }
 });
 
 app.post('/:collection', function(req, res) { //A
