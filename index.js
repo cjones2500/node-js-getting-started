@@ -8,7 +8,7 @@ var http = require('http'),
 //establish database interface
 MongoClient = require('mongodb').MongoClient,
 Server = require('mongodb').Server,
-CollectionDriver = require('./CollectionDriver').CollectionDriver;
+CollectionDriver = require('CollectionDriver').CollectionDriver;
 
  
 var app = express();
