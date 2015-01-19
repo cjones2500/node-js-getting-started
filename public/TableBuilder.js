@@ -18,10 +18,12 @@ HtmlTableBuilder.prototype.buildTable = function(){
     
     //build the data rows by looping through all the data
     $.each(this.dataArray, function(k, v) {
+        html = html + '<tr>';
         $.each(v, function(innerKey, innerValue) {
             var val = v[innerKey];
             html = html + '<td>' + innerValue + '</td>'
         });
+        html = html + '</tr>';
     });
     
     html = html + '</tbody></table></div>'
