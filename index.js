@@ -9,6 +9,7 @@ var http = require('http'),
 MongoClient = require('mongodb').MongoClient,
 Server = require('mongodb').Server,
 CollectionDriver = require('./CollectionDriver').CollectionDriver;
+
  
 var app = express();
 app.set('port', process.env.PORT || 5000); 
@@ -39,10 +40,12 @@ app.use(bodyParser.json());
 // parse multipart/form-data
 //app.use(multer());
 
+//mongodb://heroku_app33218048:tiisud5pugrqjpfcfep2d00jd9@ds031571.mongolab.com:31571/heroku_app33218048
 
 //implement sections of the mongoDb
-var mongoHost = 'localHost';
-var mongoPort = 27017;
+//var mongoHost = 'localHost';
+var mongoHost = 'heroku_app33218048:tiisud5pugrqjpfcfep2d00jd9@ds031571.mongolab.com';
+var mongoPort = 31571;
 var collectionDriver;
 
 var mongoClient = new MongoClient(new Server(mongoHost, mongoPort));
