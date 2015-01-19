@@ -5,7 +5,7 @@ function HtmlTableBuilder(dataArray){
 
 //function to build a twitter bootstrap table
 HtmlTableBuilder.prototype.buildTable = function(){
-    html = '<div class="bs-example"><table class="table"><thread><tr>'
+    html = '<div class="bs-example"><table class="table table-striped table-bordered table-condensed"><thread><tr>'
     
     //loop through all the fields at the top
     v = this.dataArray[0];

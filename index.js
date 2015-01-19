@@ -62,7 +62,7 @@ app.get('/', function (request, response) {
 	response.send('<html><body><h1>Hello World</h1></body></html>');
 });
 
-app.get('/:collection', function(req, res) { //A
+/*app.get('/:collection', function(req, res) { //A
     var params = req.params; //B
     collectionDriver.findAll(req.params.collection, function(error, objs) { //C
 	if (error) { res.send(400, error);} //D
@@ -77,16 +77,17 @@ app.get('/:collection', function(req, res) { //A
 	    }
 	}
     });
-});
+});*/
 
-/*app.get('/:collection', function(req, res, next) {  
+app.get('/:collection', function(req, res, next) {  
    var params = req.params;
-   var query = req.query.query; //1
+   var query = req.query; //1
    if (query) {
-        query = JSON.parse(query); //2
+        //query = JSON.parse(query); //required for multiple queries 
         collectionDriver.query(req.params.collection, query, returnCollectionResults(req,res)); //3
    } else {
-        collectionDriver.findAll(req.params.collection, returnCollectionResults(req,res)); //4
+	//do nothing
+        //collectionDriver.findAll(req.params.collection, returnCollectionResults(req,res)); //4
    }
 });
  
@@ -102,7 +103,7 @@ function returnCollectionResults(req, res) {
                 }
         }
     };
-};*/
+};
  
 app.get('/:collection/:entity', function(req, res) { //I
     console.log("get function activated for get");
