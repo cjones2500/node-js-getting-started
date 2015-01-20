@@ -8,7 +8,7 @@ var http = require('http'),
 //establish database interface
 MongoClient = require('mongodb').MongoClient,
 Server = require('mongodb').Server,
-CollectionDriver = require('/lib/collectionDriver').CollectionDriver;
+CollectionDriver = require('./collectionDriver').CollectionDriver;
 
  
 var app = express();
@@ -46,6 +46,11 @@ app.use(bodyParser.json());
 //var mongoHost = 'localHost';
 var mongoHost = 'heroku_app33218048:tiisud5pugrqjpfcfep2d00jd9@ds031571.mongolab.com';
 var mongoPort = 31571;
+var mongoDatabase = 'heroku_app33218048'; 
+//var mongoHost = 'localHost'
+//var mongoPort = '27017'
+
+
 var collectionDriver;
 
 var mongoClient = new MongoClient(new Server(mongoHost, mongoPort));
@@ -54,7 +59,7 @@ mongoClient.open(function(err, mongoClient) { //C
       console.error("Error! Exiting... Must start MongoDB first");
       process.exit(1); //D
   }
-  var db = mongoClient.db("MyDatabase");  //E
+  var db = mongoClient.db(mongoDatabase);  //E
   collectionDriver = new CollectionDriver(db); //F
 });
 
