@@ -9,6 +9,7 @@ OPDatabase.prototype.postToDb = function(dataToSend){
         url: this.url + this.db,
         type: 'POST',
         dataType: 'json',
+        crossDomain: true,
         contentType: 'application/json',
         processData: false,
         data: dataToSend,
@@ -25,6 +26,7 @@ OPDatabase.prototype.getAllFromDb = function(callBack){
     $.ajax({
         url: this.url + this.db,
         type: 'GET',
+        crossDomain: true,
         accepts: "application/json; charset=utf-8", //force to send back JSON format
         contentType: 'application/json',
         success: function (data) {
@@ -41,6 +43,7 @@ OPDatabase.prototype.deleteFromDb = function(dataToSend){
     $.ajax({
         url: this.url + this.db,
         type: 'DELETE',
+        crossDomain: true,
         dataType: 'json',
         contentType: 'application/json',
         success: function (data) {
