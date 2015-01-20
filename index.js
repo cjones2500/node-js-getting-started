@@ -68,7 +68,17 @@ mongoClient.open(function(err, mongoClient) { //C
   collectionDriver = new CollectionDriver(db); //F
 });
 
+//CORS middleware
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'example.com');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
+
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(allowCrossDomain);
  
 app.get('/', function (request, response) {
   	console.log(request.headers);
