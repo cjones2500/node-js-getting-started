@@ -1,3 +1,7 @@
+//HELPFUL Commands
+// $heroku addons:open mongolab
+
+
 var bodyParser = require('body-parser')
 var multer = require('multer');
 
@@ -6,7 +10,7 @@ var http = require('http'),
     path = require('path');
 
 //establish database interface
-MongoClient = require('mongodb').MongoClient,
+var MongoClient = require('mongodb').MongoClient,
 Server = require('mongodb').Server,
 CollectionDriver = require('./collectionDriver').CollectionDriver;
 
