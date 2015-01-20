@@ -47,8 +47,9 @@ app.use(bodyParser.json());
 //mongodb://heroku_app33218048:tiisud5pugrqjpfcfep2d00jd9@ds031571.mongolab.com:31571/heroku_app33218048
 
 //implement sections of the mongoDb
-//var mongoHost = 'localHost';
-var mongoHost = 'heroku_app33218048:tiisud5pugrqjpfcfep2d00jd9@ds031571.mongolab.com';
+//var mongoHost = 'localHost'; ds012345.mongolab.com
+//var mongoHost = 'heroku_app33218048:tiisud5pugrqjpfcfep2d00jd9@ds031571.mongolab.com';
+var mongoHost = 'ds031571.mongolab.com'
 var mongoPort = 31571;
 var mongoDatabase = 'heroku_app33218048'; 
 //var mongoHost = 'localHost'
