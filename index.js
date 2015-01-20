@@ -63,19 +63,20 @@ mongoClient.open(function(err, mongoClient) { //C
       process.exit(1); //D
   }
   var db = mongoClient.db(mongoDatabase);  //E
+  console.log("connection to database:",db);
   collectionDriver = new CollectionDriver(db); //F
 });
 
 //mongodb://ds031571.mongolab.com:31571/heroku_app33218048/userData/
 
-var mongoose = require('mongoose');
+/*var mongoose = require('mongoose');
 mongoose.connect('mongodb://ds031571.mongolab.com:31571/heroku_app33218048/userData/');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
   console.log("we're on ");
-});
+});*/
 
 //CORS middleware
 var allowCrossDomain = function(req, res, next) {
