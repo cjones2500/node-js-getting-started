@@ -1,21 +1,64 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'lib/collectionDriver' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.35
-4 error install Couldn't read dependencies
-5 error Failed to parse json
-5 error Unexpected token /
-6 error File: /Users/cjones/node-js-getting-started/package.json
-7 error Failed to parse package.json data.
-7 error package.json must be actual JSON, not just JavaScript.
-7 error
-7 error This is not a bug in npm.
-7 error Tell the package author to fix their package.json file. JSON.parse
-8 error System Darwin 14.0.0
-9 error command "node" "/usr/local/bin/npm" "install"
-10 error cwd /Users/cjones/node-js-getting-started
-11 error node -v v0.10.35
-12 error npm -v 1.4.28
-13 error file /Users/cjones/node-js-getting-started/package.json
-14 error code EJSONPARSE
-15 verbose exit [ 1, true ]
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'lib/collectionDriver', null ]
+6 verbose cache add name=undefined spec="lib/collectionDriver" args=["lib/collectionDriver",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'lib/collectionDriver',
+7 verbose parsed url   path: 'lib/collectionDriver',
+7 verbose parsed url   href: 'lib/collectionDriver' }
+8 silly lockFile 3861409a-lib-collectionDriver lib/collectionDriver
+9 verbose lock lib/collectionDriver /Users/cjones/.npm/3861409a-lib-collectionDriver.lock
+10 info maybeGithub Attempting lib/collectionDriver from git://github.com/lib/collectionDriver
+11 silly lockFile c91879f2--github-com-lib-collectionDriver git://github.com/lib/collectionDriver
+12 verbose lock git://github.com/lib/collectionDriver /Users/cjones/.npm/c91879f2--github-com-lib-collectionDriver.lock
+13 verbose addRemoteGit [ 'git://github.com/lib/collectionDriver', 'master' ]
+14 verbose git clone git://github.com/lib/collectionDriver Cloning into bare repository '/Users/cjones/.npm/_git-remotes/git-github-com-lib-collectionDriver-c91879f2'...
+14 verbose git clone git://github.com/lib/collectionDriver fatal: remote error:
+14 verbose git clone git://github.com/lib/collectionDriver   Repository not found.
+15 silly lockFile c91879f2--github-com-lib-collectionDriver git://github.com/lib/collectionDriver
+16 silly lockFile c91879f2--github-com-lib-collectionDriver git://github.com/lib/collectionDriver
+17 info maybeGithub Attempting lib/collectionDriver from git+ssh://git@github.com:lib/collectionDriver
+18 silly lockFile 0a0c9830--github-com-lib-collectionDriver git@github.com:lib/collectionDriver
+19 verbose lock git@github.com:lib/collectionDriver /Users/cjones/.npm/0a0c9830--github-com-lib-collectionDriver.lock
+20 verbose addRemoteGit [ 'git@github.com:lib/collectionDriver', 'master' ]
+21 error git clone git@github.com:lib/collectionDriver Cloning into bare repository '/Users/cjones/.npm/_git-remotes/git-github-com-lib-collectionDriver-0a0c9830'...
+21 error git clone git@github.com:lib/collectionDriver Saving password to keychain failed
+21 error git clone git@github.com:lib/collectionDriver Saving password to keychain failed
+21 error git clone git@github.com:lib/collectionDriver Saving password to keychain failed
+21 error git clone git@github.com:lib/collectionDriver Permission denied (publickey).
+21 error git clone git@github.com:lib/collectionDriver fatal: Could not read from remote repository.
+21 error git clone git@github.com:lib/collectionDriver
+21 error git clone git@github.com:lib/collectionDriver Please make sure you have the correct access rights
+21 error git clone git@github.com:lib/collectionDriver and the repository exists.
+22 silly lockFile 0a0c9830--github-com-lib-collectionDriver git@github.com:lib/collectionDriver
+23 silly lockFile 0a0c9830--github-com-lib-collectionDriver git@github.com:lib/collectionDriver
+24 silly lockFile 3861409a-lib-collectionDriver lib/collectionDriver
+25 silly lockFile 3861409a-lib-collectionDriver lib/collectionDriver
+26 error addLocal Could not install lib/collectionDriver
+27 error Error: ENOENT, stat 'lib/collectionDriver'
+28 error If you need help, you may report this *entire* log,
+28 error including the npm and node versions, at:
+28 error     <http://github.com/npm/npm/issues>
+29 error System Darwin 14.0.0
+30 error command "node" "/usr/local/bin/npm" "install" "lib/collectionDriver"
+31 error cwd /Users/cjones/Desktop/node-js-getting-started
+32 error node -v v0.10.35
+33 error npm -v 1.4.28
+34 error path lib/collectionDriver
+35 error code ENOENT
+36 error errno 34
+37 verbose exit [ 34, true ]
