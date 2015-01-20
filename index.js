@@ -55,6 +55,14 @@ var mongoDatabase = 'heroku_app33218048';
 //var mongoHost = 'localHost'
 //var mongoPort = '27017'
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://heroku_app33218048@ds031571.mongolab.com:31571/');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  // yay!
+});
+
 
 var collectionDriver;
 
