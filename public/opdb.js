@@ -28,6 +28,7 @@ OPDatabase.prototype.getAllFromDb = function(callBack){
         type: 'GET',
         crossDomain: true,
         accepts: "application/json; charset=utf-8", //force to send back JSON format
+        dataType:'jsonp',
         contentType: 'application/json',
         success: function (data) {
             callBack(data);
