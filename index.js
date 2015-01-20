@@ -67,6 +67,21 @@ mongoClient.open(function(err, mongoClient) { //C
   collectionDriver = new CollectionDriver(db); //F
 });
 
+var mongoose = require('mongoose');
+var uriUtil = require('mongodb-uri');
+
+var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
+
+var mongodbUri = 'mongodb://ds031571.mongolab.com:31571/heroku_app33218048/userData/';
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+mongoose.connect(mongooseUri, options);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+    console.log("in here");
+});
+
 //mongodb://ds031571.mongolab.com:31571/heroku_app33218048/userData/
 
 /*var mongoose = require('mongoose');
