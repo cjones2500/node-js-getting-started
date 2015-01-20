@@ -33,7 +33,7 @@ OPDatabase.prototype.getAllFromDb = function(callBack){
             callBack(data);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log('OPDatabase::getFromDb::error', errorThrown);
+            console.log('OPDatabase::getFromDb::error' + XMLHttpRequest +" " + textStatus + " " errorThrown);
         }
     });
 }
