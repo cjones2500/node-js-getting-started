@@ -90,6 +90,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(allowCrossDomain);
  
 app.get('/', function (request, response) {
+	console.log("collectionDriver",collectionDriver.db);
   	console.log(request.headers);
 	response.send('<html><body><h1>Hello World</h1></body></html>');
 });
