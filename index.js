@@ -55,17 +55,18 @@ var mongoDatabase = 'heroku_app33218048';
 //var mongoPort = '27017'
 
 var collectionDriver;
-var tester =  'mongodb://ds031571.mongolab.com:31571/heroku_app33218048'
-//var mongoClient = new MongoClient(new Server(mongoHost, mongoPort));
-var mongoClient = new MongoClient(tester)
+//var tester =  'mongodb://ds031571.mongolab.com:31571/heroku_app33218048'
+var mongoClient = new MongoClient(new Server(mongoHost, mongoPort));
 mongoClient.open(function(err, mongoClient) { //C
   if (!mongoClient) {
       console.error("Error! Exiting... Must start MongoDB first");
       process.exit(1); //D
   }
   var db = mongoClient.db(mongoDatabase);  //E
-  console.log("connection to database..");
-  collectionDriver = new CollectionDriver(db); //F
+  db.authenticate('heroku_app33218048', 'tiisud5pugrqjpfcfep2d00jd9', function(err, result) {
+    console.log("connection to database..");
+    collectionDriver = new CollectionDriver(db); //F
+  });
 });
 
 //mongodb://ds031571.mongolab.com:31571/heroku_app33218048/userData/
