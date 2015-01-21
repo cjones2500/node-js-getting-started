@@ -116,6 +116,7 @@ app.get('/:collection', function(req, res, next) {
    var params = req.params;
    var query = req.query; //1
    console.log("test");
+   console.log("query is: ",query);
    if (query) {
         //query = JSON.parse(query); //required for multiple queries 
         collectionDriver.query(req.params.collection, query, returnCollectionResults(req,res)); //3
