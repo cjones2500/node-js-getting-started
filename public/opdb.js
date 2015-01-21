@@ -26,7 +26,6 @@ OPDatabase.prototype.getAllFromDb = function(callBack){
     $.ajax({
         url: this.url + this.db,
         type: 'GET',
-        crossDomain: true,
         accepts: "application/json; charset=utf-8", //force to send back JSON format
         dataType:'jsonp',
         contentType: 'application/json',

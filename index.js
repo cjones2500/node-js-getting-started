@@ -95,10 +95,10 @@ app.get('/', function (request, response) {
 	response.send('<html><body><h1>Hello World</h1></body></html>');
 });
 
-/*app.get('/:collection', function(req, res) { //A
+app.get('/:collection', function(req, res) { //A
     var params = req.params; //B
     collectionDriver.findAll(req.params.collection, function(error, objs) { //C
-	if (error) { res.send(400, error);} //D
+	if (error) { res.send(400, error); console.log("error:",error);} //D
 	else { 
 	    if (req.accepts('html')) { //E
 		res.render('data',{objects: objs, collection: req.params.collection}); //F
@@ -110,7 +110,7 @@ app.get('/', function (request, response) {
 	    }
 	}
     });
-});*/
+});
 
 app.get('/:collection', function(req, res, next) {  
    var params = req.params;
@@ -147,8 +147,8 @@ app.get('/:collection/:entity', function(req, res) { //I
     var collection = params.collection;
     if (entity) {
 	collectionDriver.get(collection, entity, function(error, objs) { //J
-	    if (error) { res.send(400, error); }
-	    else { res.send(200, objs); } //K
+	    if (error) { res.send(400, error); console.log("error:",error); }
+	    else { res.send(200, objs); console.log("object:",objs); } //K
 	});
     } else {
 	res.send(400, {error: 'bad url', url: req.url});
