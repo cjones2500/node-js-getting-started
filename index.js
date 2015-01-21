@@ -54,7 +54,7 @@ var mongoDatabase = 'heroku_app33218048';
 //var mongoHost = 'localHost'
 //var mongoPort = '27017'
 
-var collectionDriver;
+/*var collectionDriver;
 var mongoClient = new MongoClient(new Server(mongoHost, mongoPort));
 mongoClient.open(function(err, mongoClient) { //C
   if (!mongoClient) {
@@ -64,18 +64,20 @@ mongoClient.open(function(err, mongoClient) { //C
   var db = mongoClient.db(mongoDatabase);  //E
   console.log("connection to database..");
   collectionDriver = new CollectionDriver(db); //F
-});
+});*/
 
 //mongodb://ds031571.mongolab.com:31571/heroku_app33218048/userData/
 
-/*var mongoose = require('mongoose');
+var collectionDriver;
+var mongoose = require('mongoose');
 mongoose.connect('mongodb://ds031571.mongolab.com:31571/heroku_app33218048/userData/');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
   console.log("we're on ");
-});*/
+  collectionDriver = new CollectionDriver(db);
+});
 
 //CORS middleware
 var allowCrossDomain = function(req, res, next) {
