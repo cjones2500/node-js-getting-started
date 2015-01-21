@@ -62,7 +62,7 @@ mongoClient.open(function(err, mongoClient) { //C
       process.exit(1); //D
   }
   var db = mongoClient.db(mongoDatabase);  //E
-  console.log("connection to database:",db);
+  console.log("connection to database..");
   collectionDriver = new CollectionDriver(db); //F
 });
 
@@ -90,7 +90,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(allowCrossDomain);
  
 app.get('/', function (request, response) {
-	console.log("collectionDriver",collectionDriver.db);
+	console.log("collectionDriver in get / function");
   	console.log(request.headers);
 	response.send('<html><body><h1>Hello World</h1></body></html>');
 });
@@ -115,6 +115,7 @@ app.get('/', function (request, response) {
 app.get('/:collection', function(req, res, next) {  
    var params = req.params;
    var query = req.query; //1
+   console.log("test");
    if (query) {
         //query = JSON.parse(query); //required for multiple queries 
         collectionDriver.query(req.params.collection, query, returnCollectionResults(req,res)); //3
