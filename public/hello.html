@@ -24,7 +24,6 @@
             }
             //fetch information to fill the database
             $(document).ready(function() {
-                //var testDb = new OPDatabase("http://localhost:5000/","userData");
                 var testDb = new OPDatabase("https://openpost.herokuapp.com/","userData");
                 testDb.getAllFromDb(buildTableWithField);
             });

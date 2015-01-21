@@ -31,28 +31,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-
-//app.use(express.bodyParser());
-
-// parse json formatted documents
-//app.use(bodyParser.json());
-
-// parse application/x-www-form-urlencoded
-//app.use(bodyParser.urlencoded({ extended: true }));
-
-// parse multipart/form-data
-//app.use(multer());
-
-//mongodb://heroku_app33218048:tiisud5pugrqjpfcfep2d00jd9@ds031571.mongolab.com:31571/heroku_app33218048
-
 //implement sections of the mongoDb
-//var mongoHost = 'localHost'; ds012345.mongolab.com
-//var mongoHost = 'heroku_app33218048:tiisud5pugrqjpfcfep2d00jd9@ds031571.mongolab.com';
 var mongoHost = 'ds031571.mongolab.com'
 var mongoPort = 31571;
 var mongoDatabase = 'heroku_app33218048'; 
-//var mongoHost = 'localHost'
-//var mongoPort = '27017'
 
 var collectionDriver;
 //var tester =  'mongodb://ds031571.mongolab.com:31571/heroku_app33218048'
